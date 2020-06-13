@@ -36,6 +36,15 @@ client.on('message', msg => {
         const channel = client.channels.cache.get('721408023565697024');
         channel.send('Hey! <@' + user + '>' + ' busca ' + msg.content.substring(10) + ' <@&719980683430461592>');
 
+    } else if (msg.channel.id === '719920516378657028' && msg.content.substring(0, 10) == '!buscoCSGO') {
+        msg.reply('Anuncio de busqueda de escuadron creado en el canal de <#721471394671755368>');
+        //ID del usuario
+        user = msg.author.id;
+        //Enviar mensaje a un canal
+        //Poner entre corchetes con @ el ID de usuario y con @& si es un rol
+        const channel = client.channels.cache.get('721471394671755368');
+        channel.send('Hey! <@' + user + '>' + ' busca ' + msg.content.substring(11) + ' <@&721470409303654492>');
+
     }
 });
 
