@@ -16,7 +16,7 @@ client.on('message', msg => {
         //Enviar mensaje a un canal
         //Poner entre corchetes con @ el ID de usuario y con @& si es un rol
         const channel = client.channels.cache.get('721356815643967590');
-        channel.send('Hey! <@' + user + '>' + ' busca ' + msg.content.substring(11) + ' <@&719917491672842281>');
+        channel.send('Hey! <@' + user + '>' + ' busca ' + msg.content.substring(10) + ' <@&719917491672842281>');
 
     } else if (msg.channel.id === '719920516378657028' && msg.content.substring(0, 9) == '!buscoLOL') {
         msg.reply('Anuncio de busqueda de equipo creado en el canal de <#721358528953974835>');
@@ -25,7 +25,7 @@ client.on('message', msg => {
         //Enviar mensaje a un canal
         //Poner entre corchetes con @ el ID de usuario y con @& si es un rol
         const channel = client.channels.cache.get('721358528953974835');
-        channel.send('Hey! <@' + user + '>' + ' busca ' + msg.content.substring(11) + ' <@&720254372415668286>');
+        channel.send('Hey! <@' + user + '>' + ' busca ' + msg.content.substring(10) + ' <@&720254372415668286>');
 
     } else if (msg.channel.id === '719920516378657028' && msg.content.substring(0, 9) == '!buscoVAL') {
         msg.reply('Anuncio de busqueda de equipo creado en el canal de <#721408023565697024>');
@@ -34,7 +34,7 @@ client.on('message', msg => {
         //Enviar mensaje a un canal
         //Poner entre corchetes con @ el ID de usuario y con @& si es un rol
         const channel = client.channels.cache.get('721408023565697024');
-        channel.send('Hey! <@' + user + '>' + ' busca ' + msg.content.substring(11) + ' <@&719980683430461592>');
+        channel.send('Hey! <@' + user + '>' + ' busca ' + msg.content.substring(10) + ' <@&719980683430461592>');
 
     }
 });
