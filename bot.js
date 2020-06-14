@@ -67,10 +67,7 @@ client.on('message', msg => {
             .setFooter('Servidor Torres');
 
             const channel = client.channels.cache.get('720272430563852328');
-            message.channel.send({embed: embed}).then(embed => {
-                embed.react("👍");
-                embed.react("👎");
-            });
+            channel.send(embed);
         }
 
     }
