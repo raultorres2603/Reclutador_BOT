@@ -56,7 +56,7 @@ client.on('message', msg => {
             const embed = new Discord.MessageEmbed()
             .setColor('#0099ff')
             .setTitle('REGLAS DEL SERVIDOR')
-            .setAuthor(client.user.username, client.user.avatar)
+            .setAuthor('Reclutador')
             .setDescription('Reglas generales y que se deben cumplir en el servidor')
             .addFields(
                 { name: 'Regla Nº1', value: '- No insultar a nadie' },
