@@ -51,26 +51,7 @@ client.on('message', msg => {
         }
 
         /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    } else if (msg.channel.id === '720389323509465199') {
-        if (msg.content.substring(0, 10) == '!verificar') {
-            const embed = new Discord.MessageEmbed()
-            .setColor('#0099ff')
-            .setTitle('REGLAS DEL SERVIDOR')
-            .setAuthor('Reclutador')
-            .setDescription('Reglas generales y que se deben cumplir en el servidor')
-            .addFields(
-                { name: 'Regla Nº1', value: '- No insultar a nadie' },
-                { name: 'Regla Nº2', value: '- No hacer SPAM'},
-                { name: 'Regla Nº3', value: '- No molestar a otros usuarios'},
-            )
-            .setTimestamp()
-            .setFooter('Servidor Torres');
-
-            const channel = client.channels.cache.get('720272430563852328');
-            channel.send(embed);
-        }
-
-    }
+    } 
 });
 
 client.login(process.env.DISCORD_TOKEN);
