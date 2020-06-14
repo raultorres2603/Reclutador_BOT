@@ -9,8 +9,11 @@ client.on('ready', () => {
 });
 
 client.on('message', msg => {
+    // Si estamos en el canal de comandos
     if (msg.channel.id === '719920516378657028') {
 
+        // Comandos para buscar equipos //
+        
         if (msg.content.substring(0, 9) == '!buscoSOT') {
             //ID del usuario
             user = msg.author.id;
@@ -47,6 +50,7 @@ client.on('message', msg => {
             channel.send('Hey! <@' + user + '>' + ' busca ' + msg.content.substring(11) + ' <@&721470409303654492>');
         }
 
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     }
 });
 
