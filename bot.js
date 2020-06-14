@@ -68,8 +68,7 @@ client.on('message', msg => {
 
             const channel = client.channels.cache.get('720272430563852328');
             channel.send(embed);
-            msg.react('✅');
-            msg.react('❌');
+
         }
 
     }
