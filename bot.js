@@ -60,9 +60,7 @@ client.on('message', msg => {
             .setDescription('Reglas generales y que se deben cumplir en el servidor')
             .addFields(
                 { name: 'Regla Nº1', value: '- No insultar a nadie' },
-                { name: '\u200B', value: '\u200B' },
                 { name: 'Regla Nº2', value: '- No hacer SPAM'},
-                { name: '\u200B', value: '\u200B' },
                 { name: 'Regla Nº3', value: '- No molestar a otros usuarios'},
             )
             .setTimestamp()
@@ -70,6 +68,8 @@ client.on('message', msg => {
 
             const channel = client.channels.cache.get('720272430563852328');
             channel.send(embed);
+            msg.react('✅');
+            msg.react('❌');
         }
 
     }
