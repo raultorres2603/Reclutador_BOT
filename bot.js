@@ -52,7 +52,7 @@ client.on('message', msg => {
 
         /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     } else if (msg.channel.id != '719920516378657028') {
-        channel.send('Éste canal no admite comandos, prueba a ir al canal de <#719920516378657028>');
+        msg.reply('Éste canal no admite comandos, visita <#719920516378657028>');
     } 
 });
 
