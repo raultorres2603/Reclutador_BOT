@@ -11,9 +11,8 @@ client.on('ready', () => {
 client.on('message', msg => {
     // Si estamos en el canal de comandos
     if (msg.channel.id === '719920516378657028') {
-
+        if (msg.member.voiceChannel) {
         // Comandos para buscar equipos //
-        
         if (msg.content.substring(0, 9) == '!buscoSOT') {
             //ID del usuario
             user = msg.author.id;
@@ -29,7 +28,7 @@ client.on('message', msg => {
             //Enviar mensaje a un canal
             //Poner entre corchetes con @ el ID de usuario y con @& si es un rol
             const channel = client.channels.cache.get('721358528953974835');
-            channel.send('Hey! <@' + user + '>' + ' busca ' + msg.content.substring(10) + ' <@&720254372415668286>');
+            channel.send('Hey! <@' + user + '>' + ' busca ' + msg.content.substring(10) + ' en el canal ' + msg.member.voiceChannel.id + ' <@&720254372415668286>');
 
         } else if (msg.content.substring(0, 9) == '!buscoVAL') {
             msg.reply('Anuncio de busqueda de equipo creado en el canal de <#721408023565697024>');
@@ -49,6 +48,9 @@ client.on('message', msg => {
             const channel = client.channels.cache.get('721471394671755368');
             channel.send('Hey! <@' + user + '>' + ' busca ' + msg.content.substring(11) + ' <@&721470409303654492>');
         }
+    } else {
+        msg.reply('Primero tienes que ir a un canal de voz para usar los comandos de busqueda de equipo!');
+    }
 
         /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     } else if (msg.channel.id != '719920516378657028' && msg.author.id != '721350612255637505' && (msg.content.substring(0,1) == '!' || msg.content.substring(0,1) == '?')) {
