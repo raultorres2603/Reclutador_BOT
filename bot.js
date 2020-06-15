@@ -9,8 +9,11 @@ client.on('ready', () => {
 });
 
 client.on('message', msg => {
+    // Si estamos en el canal de comandos
     if (msg.channel.id === '719920516378657028') {
 
+        // Comandos para buscar equipos //
+        
         if (msg.content.substring(0, 9) == '!buscoSOT') {
             //ID del usuario
             user = msg.author.id;
@@ -47,7 +50,10 @@ client.on('message', msg => {
             channel.send('Hey! <@' + user + '>' + ' busca ' + msg.content.substring(11) + ' <@&721470409303654492>');
         }
 
-    }
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    } else if (msg.channel.id != '719920516378657028' && msg.author.id != '721350612255637505') {
+        msg.reply('Éste canal no admite comandos, visita <#719920516378657028>');
+    } 
 });
 
 client.login(process.env.DISCORD_TOKEN);
