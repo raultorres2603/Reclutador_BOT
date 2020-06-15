@@ -14,6 +14,7 @@ client.on('message', msg => {
         if (msg.member.voice.channel) {
         // Comandos para buscar equipos //
         if (msg.content.substring(0, 9) == '!buscoSOT') {
+            msg.reply('Anuncio de busqueda de tripulación creado en el canal de <#721356815643967590>');
             //ID del usuario
             user = msg.author.id;
             //Enviar mensaje a un canal
