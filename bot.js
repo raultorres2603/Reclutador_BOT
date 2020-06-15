@@ -20,7 +20,7 @@ client.on('message', msg => {
             //Enviar mensaje a un canal
             //Poner entre corchetes con @ el ID de usuario y con @& si es un rol
             const channel = client.channels.cache.get('721356815643967590');
-            channel.send('Hey! <@' + user + '>' + ' busca ' + msg.content.substring(10) + 'en el canal ' + '<#' + msg.member.voice.channel.id + '>' + ' <@&719917491672842281>');
+            channel.send('Hey! <@' + user + '>' + ' busca ' + msg.content.substring(10) + ' en el canal ' + '[LINK](https://discordapp.com/719910754383298572/' + msg.member.voice.channel.id + ')');
 
         } else if (msg.content.substring(0, 9) == '!buscoLOL') {
             msg.reply('Anuncio de busqueda de equipo creado en el canal de <#721358528953974835>');
