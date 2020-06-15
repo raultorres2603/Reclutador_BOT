@@ -48,12 +48,12 @@ client.on('message', msg => {
             const channel = client.channels.cache.get('721471394671755368');
             channel.send('Hey! <@' + user + '>' + ' busca ' + msg.content.substring(11) + ' <@&721470409303654492>');
         }
-    } else {
+    } else if (!msg.member.voiceChannel && !msg.author.bot) {
         msg.reply('Primero tienes que ir a un canal de voz para usar los comandos de busqueda de equipo!');
     }
 
         /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    } else if (msg.channel.id != '719920516378657028' && msg.author.id != '721350612255637505' && (msg.content.substring(0,1) == '!' || msg.content.substring(0,1) == '?')) {
+    } else if (msg.channel.id != '719920516378657028' && !msg.author.bot && (msg.content.substring(0,1) == '!' || msg.content.substring(0,1) == '?')) {
         msg.reply('Éste canal no admite comandos, visita <#719920516378657028>');
     } 
 });
