@@ -51,6 +51,8 @@ client.on('message', msg => {
         }
 
         /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    } else {
+        msg.reply('Éste canal no admite comandos, ves al canal <#719920516378657028> para ejecutar los comandos 😁');
     } 
 });
 
