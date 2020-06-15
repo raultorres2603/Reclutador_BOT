@@ -51,8 +51,8 @@ client.on('message', msg => {
         }
 
         /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    } else {
-        msg.reply('Éste canal no admite comandos, ves al canal <#719920516378657028> para ejecutar los comandos 😁');
+    } else if (msg.channel.id != '719920516378657028') {
+        channel.send('Éste canal no admite comandos, prueba a ir al canal de <#719920516378657028>');
     } 
 });
 
