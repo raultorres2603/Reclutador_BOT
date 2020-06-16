@@ -6,14 +6,17 @@ const client = new Discord.Client();
 
 client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`);
+    client.user.setActivity('BOT oficial Torres');
 });
+
+// NECESIDAD DE CANAL DE COMANDOS ESPECÍFICO
 
 client.on('message', msg => {
     // Si estamos en el canal de comandos
-    if (msg.channel.id === '719920516378657028') {
+    if (msg.channel.id === '719920516378657028' && (msg.content.startsWith('!') || msg.content.startsWith('?'))) {
         if (msg.member.voice.channel) {
         // Comandos para buscar equipos //
-        if (msg.content.substring(0, 9) == '!buscoSOT') {
+        if (msg.content.startsWith('!buscoSOT')) {
             msg.reply('Anuncio de busqueda de tripulación creado en el canal de <#721356815643967590>');
             //ID del usuario
             user = msg.author.id;
@@ -22,7 +25,7 @@ client.on('message', msg => {
             const channel = client.channels.cache.get('721356815643967590');
             channel.send('Hey! <@' + user + '>' + ' busca ' + msg.content.substring(10) + ' en el canal de voz ' + '<#' + msg.member.voice.channel.id + '>' + ' <@&719917491672842281>');
 
-        } else if (msg.content.substring(0, 9) == '!buscoLOL') {
+        } else if (msg.content.startsWith('!buscoLOL')) {
             msg.reply('Anuncio de busqueda de equipo creado en el canal de <#721358528953974835>');
             //ID del usuario
             user = msg.author.id;
@@ -31,7 +34,7 @@ client.on('message', msg => {
             const channel = client.channels.cache.get('721358528953974835');
             channel.send('Hey! <@' + user + '>' + ' busca ' + msg.content.substring(10) + ' en el canal de voz ' + '<#' + msg.member.voice.channel.id + '>' + ' <@&720254372415668286>');
 
-        } else if (msg.content.substring(0, 9) == '!buscoVAL') {
+        } else if (msg.content.startsWith('!buscoVAL')) {
             msg.reply('Anuncio de busqueda de equipo creado en el canal de <#721408023565697024>');
             //ID del usuario
             user = msg.author.id;
@@ -40,7 +43,7 @@ client.on('message', msg => {
             const channel = client.channels.cache.get('721408023565697024');
             channel.send('Hey! <@' + user + '>' + ' busca ' + msg.content.substring(10) + ' en el canal de voz ' + '<#' + msg.member.voice.channel.id + '>' +  ' <@&719980683430461592>');
 
-        } else if (msg.content.substring(0, 10) == '!buscoCSGO') {
+        } else if (msg.content.startsWith('!buscoCSGO')) {
             msg.reply('Anuncio de busqueda de escuadron creado en el canal de <#721471394671755368>');
             //ID del usuario
             user = msg.author.id;
