@@ -15,7 +15,6 @@ client.on('message', msg => {
     // Si estamos en el canal de comandos
     if (msg.channel.id === '719920516378657028' && (msg.content.startsWith('!') || msg.content.startsWith('?'))) {
         if (msg.member.voice.channel) {
-            const invite = msg.member.voice.channel.createInvite().then(() => invite.code);
         // Comandos para buscar equipos //
         if (msg.content.startsWith('!buscoSOT')) {
             msg.reply('Anuncio de busqueda de tripulación creado en el canal de <#721356815643967590>');
@@ -28,7 +27,6 @@ client.on('message', msg => {
             .setColor('#0099ff')
             .setAuthor(client.user.username)
             .setTitle('Anuncio')
-            .setURL('https://discord.gg/' + invite)
             .addField ('Notificacion','Hey! <@' + user + '>' + ' busca ' + msg.member.voice.channel.userLimit + ' soldados')
             .addField('Plan', msg.content.substring(10))
             .addField('Canal', '<#' + msg.member.voice.channel.id + '>')
@@ -48,7 +46,6 @@ client.on('message', msg => {
             .setColor('#0099ff')
             .setAuthor(client.user.username)
             .setTitle('Anuncio')
-            .setURL('https://discord.gg/' + invite)
             .addField ('Notificacion','Hey! <@' + user + '>' + ' busca ' + msg.member.voice.channel.userLimit + ' invocadores')
             .addField('Plan', msg.content.substring(10))
             .addField('Canal', '<#' + msg.member.voice.channel.id + '>')
@@ -68,7 +65,6 @@ client.on('message', msg => {
             .setColor('#0099ff')
             .setAuthor(client.user.username)
             .setTitle('Anuncio')
-            .setURL('https://discord.gg/' + invite)
             .addField ('Notificacion','Hey! <@' + user + '>' + ' busca ' + msg.member.voice.channel.userLimit + ' soldados')
             .addField('Plan', msg.content.substring(10))
             .addField('Canal', '<#' + msg.member.voice.channel.id + '>')
@@ -88,7 +84,6 @@ client.on('message', msg => {
             .setColor('#0099ff')
             .setAuthor(client.user.username)
             .setTitle('Anuncio')
-            .setURL('https://discord.gg/' + invite)
             .addField ('Notificacion','Hey! <@' + user + '>' + ' busca ' + msg.member.voice.channel.userLimit + ' soldados')
             .addField('Plan', msg.content.substring(11))
             .addField('Canal', '<#' + msg.member.voice.channel.id + '>')
