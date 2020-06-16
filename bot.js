@@ -29,7 +29,7 @@ client.on('message', msg => {
             .setTitle('Confirmación')
             .addField ('Notificacion','Hey! <@' + user + '>' + ' busca ' + msg.member.voice.channel.userLimit + ' soldados')
             .addField('Plan', msg.content.substring(10))
-            .addField('Canal', '[<#' + msg.member.voice.channel.id + '>](' + msg.member.voice.channel.createInvite() + ')')
+            .addField('Canal', '<#' + msg.member.voice.channel.id + '>(' + msg.member.voice.channel.createInvite() + ')')
             .setTimestamp()
 	        .setFooter('BOT oficial Torres');
             channel.send(embed)
@@ -48,7 +48,7 @@ client.on('message', msg => {
             .setTitle('Confirmación')
             .addField ('Notificacion','Hey! <@' + user + '>' + ' busca ' + msg.member.voice.channel.userLimit + ' invocadores')
             .addField('Plan', msg.content.substring(10))
-            .addField('Canal', '[<#' + msg.member.voice.channel.id + '>](' + msg.member.voice.channel.createInvite() + ')')
+            .addField('Canal', '<#' + msg.member.voice.channel.id + '>(' + msg.member.voice.channel.createInvite() + ')')
             .setTimestamp()
 	        .setFooter('BOT oficial Torres');
             channel.send(embed)
@@ -67,7 +67,7 @@ client.on('message', msg => {
             .setTitle('Confirmación')
             .addField ('Notificacion','Hey! <@' + user + '>' + ' busca ' + msg.member.voice.channel.userLimit + ' soldados')
             .addField('Plan', msg.content.substring(10))
-            .addField('Canal', '[<#' + msg.member.voice.channel.id + '>](' + msg.member.voice.channel.createInvite() + ')')
+            .addField('Canal', '<#' + msg.member.voice.channel.id + '>(' + msg.member.voice.channel.createInvite() + ')')
             .setTimestamp()
 	        .setFooter('BOT oficial Torres');
             channel.send(embed)
@@ -86,7 +86,7 @@ client.on('message', msg => {
             .setTitle('Confirmación')
             .addField ('Notificacion','Hey! <@' + user + '>' + ' busca ' + msg.member.voice.channel.userLimit + ' soldados')
             .addField('Plan', msg.content.substring(11))
-            .addField('Canal', '[<#' + msg.member.voice.channel.id + '>](' + msg.member.voice.channel.createInvite() + ')')
+            .addField('Canal', '<#' + msg.member.voice.channel.id + '>(' + msg.member.voice.channel.createInvite() + ')')
             .setTimestamp()
 	        .setFooter('BOT oficial Torres');
             channel.send(embed)
