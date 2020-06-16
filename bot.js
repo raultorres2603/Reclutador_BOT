@@ -27,8 +27,10 @@ client.on('message', msg => {
             .setColor('#0099ff')
             .setAuthor(client.user.username)
             .setTitle('Confirmación')
-            .addField('Notificacion', 'Hey! ' + user + 'busca ' + msg.member.voice.channel.userLimit + ' tripulantes en el canal [<#' + msg.member.voice.channel.id + '>](' + msg.member.voice.channel.createInvite() + ') ')
-            .addField('Plan', msg.content.substring(10))
+            .addFields (
+                { name: 'Notificacion', value: 'Hey! <@' + user + '>' + ' busca ' + msg.member.voice.channel.userLimit + ' soldados en el canal [<#' + msg.member.voice.channel.id + '>](' + msg.member.voice.channel.createInvite() + ')' },
+                { name: 'Plan', value: msg.content.substring(11) },
+            )
             .setTimestamp()
 	        .setFooter('BOT oficial Torres');
             channel.send(embed)
@@ -45,8 +47,10 @@ client.on('message', msg => {
             .setColor('#0099ff')
             .setAuthor(client.user.username)
             .setTitle('Confirmación')
-            .addField('Notificacion', 'Hey! ' + user + 'busca ' + msg.member.voice.channel.userLimit + ' invocadores en el canal [<#' + msg.member.voice.channel.id + '>](' + msg.member.voice.channel.createInvite() + ') ')
-            .addField('Plan', msg.content.substring(10))
+            .addFields (
+                { name: 'Notificacion', value: 'Hey! <@' + user + '>' + ' busca ' + msg.member.voice.channel.userLimit + ' soldados en el canal [<#' + msg.member.voice.channel.id + '>](' + msg.member.voice.channel.createInvite() + ')' },
+                { name: 'Plan', value: msg.content.substring(11) },
+            )
             .setTimestamp()
 	        .setFooter('BOT oficial Torres');
             channel.send(embed)
@@ -63,8 +67,10 @@ client.on('message', msg => {
             .setColor('#0099ff')
             .setAuthor(client.user.username)
             .setTitle('Confirmación')
-            .addField('Notificacion', 'Hey! ' + user + 'busca ' + msg.member.voice.channel.userLimit + ' soldados en el canal [<#' + msg.member.voice.channel.id + '>](' + msg.member.voice.channel.createInvite() + ') ')
-            .addField('Plan', msg.content.substring(10))
+            .addFields (
+                { name: 'Notificacion', value: 'Hey! <@' + user + '>' + ' busca ' + msg.member.voice.channel.userLimit + ' soldados en el canal [<#' + msg.member.voice.channel.id + '>](' + msg.member.voice.channel.createInvite() + ')' },
+                { name: 'Plan', value: msg.content.substring(11) },
+            )
             .setTimestamp()
 	        .setFooter('BOT oficial Torres');
             channel.send(embed)
@@ -81,8 +87,10 @@ client.on('message', msg => {
             .setColor('#0099ff')
             .setAuthor(client.user.username)
             .setTitle('Confirmación')
-            .addField('Notificacion', 'Hey! ' + user + 'busca ' + msg.member.voice.channel.userLimit + ' soldados en el canal [<#' + msg.member.voice.channel.id + '>](' + msg.member.voice.channel.createInvite() + ') ')
-            .addField('Plan', msg.content.substring(11))
+            .addFields (
+                { name: 'Notificacion', value: 'Hey! <@' + user + '>' + ' busca ' + msg.member.voice.channel.userLimit + ' soldados en el canal [<#' + msg.member.voice.channel.id + '>](' + msg.member.voice.channel.createInvite() + ')' },
+                { name: 'Plan', value: msg.content.substring(11) },
+            )
             .setTimestamp()
 	        .setFooter('BOT oficial Torres');
             channel.send(embed)
