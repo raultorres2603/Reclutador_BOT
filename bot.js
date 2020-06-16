@@ -23,7 +23,7 @@ client.on('message', msg => {
             //Enviar mensaje a un canal
             //Poner entre corchetes con @ el ID de usuario y con @& si es un rol
             const channel = client.channels.cache.get('721356815643967590');
-            const embed = new Discord.MessageEmbed()
+            const embed = new Discord.RichEmbed()
             .setColor('#0099ff')
             .setAuthor(client.user.username)
             .setTitle('Confirmación')
@@ -43,7 +43,7 @@ client.on('message', msg => {
             //Enviar mensaje a un canal
             //Poner entre corchetes con @ el ID de usuario y con @& si es un rol
             const channel = client.channels.cache.get('721358528953974835');
-            const embed = new Discord.MessageEmbed()
+            const embed = new Discord.RichEmbed()
             .setColor('#0099ff')
             .setAuthor(client.user.username)
             .setTitle('Confirmación')
@@ -63,7 +63,7 @@ client.on('message', msg => {
             //Enviar mensaje a un canal
             //Poner entre corchetes con @ el ID de usuario y con @& si es un rol
             const channel = client.channels.cache.get('721408023565697024');
-            const embed = new Discord.MessageEmbed()
+            const embed = new Discord.RichEmbed()
             .setColor('#0099ff')
             .setAuthor(client.user.username)
             .setTitle('Confirmación')
@@ -83,7 +83,7 @@ client.on('message', msg => {
             //Enviar mensaje a un canal
             //Poner entre corchetes con @ el ID de usuario y con @& si es un rol
             const channel = client.channels.cache.get('721471394671755368');
-            const embed = new Discord.MessageEmbed()
+            const embed = new Discord.RichEmbed()
             .setColor('#0099ff')
             .setAuthor(client.user.username)
             .setTitle('Confirmación')
