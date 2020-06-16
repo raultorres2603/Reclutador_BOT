@@ -86,7 +86,7 @@ client.on('message', msg => {
                 .setTitle('Anuncio')
                 .addField ('Notificacion','Hey! <@' + user + '>' + ' busca ' + msg.member.voice.channel.userLimit + ' soldados')
                 .addField('Plan', msg.content.substring(11))
-                .addField('Canal', '<#' + msg.member.voice.channel.id + '>(https://discord.gg/' + invite.code + ')')
+                .addField('Canal', '[<#' + msg.member.voice.channel.id + '>](https://discord.gg/' + invite.code + ')')
                 .setTimestamp()
                 .setFooter('BOT oficial Torres');
                 channel.send(embed)
