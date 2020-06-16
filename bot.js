@@ -15,6 +15,8 @@ client.on('message', msg => {
     // Si estamos en el canal de comandos
     if (msg.channel.id === '719920516378657028' && (msg.content.startsWith('!') || msg.content.startsWith('?'))) {
         if (msg.member.voice.channel) {
+            const invite = msg.member.voice.channel.createInvite()
+            .then((invite) => {return(invite = invite.code);});
         // Comandos para buscar equipos //
         if (msg.content.startsWith('!buscoSOT')) {
             msg.reply('Anuncio de busqueda de tripulación creado en el canal de <#721356815643967590>');
@@ -29,7 +31,7 @@ client.on('message', msg => {
             .setTitle('Anuncio')
             .addField ('Notificacion','Hey! <@' + user + '>' + ' busca ' + msg.member.voice.channel.userLimit + ' soldados')
             .addField('Plan', msg.content.substring(10))
-            .addField('Canal', '<#' + msg.member.voice.channel.id + '>')
+            .addField('Canal', '<#' + msg.member.voice.channel.id + '>(https://discord.gg/' + invite)
             .setTimestamp()
 	        .setFooter('BOT oficial Torres');
             channel.send(embed)
@@ -48,7 +50,7 @@ client.on('message', msg => {
             .setTitle('Anuncio')
             .addField ('Notificacion','Hey! <@' + user + '>' + ' busca ' + msg.member.voice.channel.userLimit + ' invocadores')
             .addField('Plan', msg.content.substring(10))
-            .addField('Canal', '<#' + msg.member.voice.channel.id + '>')
+            .addField('Canal', '<#' + msg.member.voice.channel.id + '>(https://discord.gg/' + invite)
             .setTimestamp()
 	        .setFooter('BOT oficial Torres');
             channel.send(embed)
@@ -67,7 +69,7 @@ client.on('message', msg => {
             .setTitle('Anuncio')
             .addField ('Notificacion','Hey! <@' + user + '>' + ' busca ' + msg.member.voice.channel.userLimit + ' soldados')
             .addField('Plan', msg.content.substring(10))
-            .addField('Canal', '<#' + msg.member.voice.channel.id + '>')
+            .addField('Canal', '<#' + msg.member.voice.channel.id + '>(https://discord.gg/' + invite)
             .setTimestamp()
 	        .setFooter('BOT oficial Torres');
             channel.send(embed)
@@ -86,7 +88,7 @@ client.on('message', msg => {
             .setTitle('Anuncio')
             .addField ('Notificacion','Hey! <@' + user + '>' + ' busca ' + msg.member.voice.channel.userLimit + ' soldados')
             .addField('Plan', msg.content.substring(11))
-            .addField('Canal', '<#' + msg.member.voice.channel.id + '>')
+            .addField('Canal', '<#' + msg.member.voice.channel.id + '>(https://discord.gg/' + invite)
             .setTimestamp()
 	        .setFooter('BOT oficial Torres');
             channel.send(embed)
