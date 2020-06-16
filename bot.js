@@ -10,7 +10,7 @@ client.on('ready', () => {
 
 client.on('message', msg => {
     // Si estamos en el canal de comandos
-    if (msg.channel.id === '719920516378657028') {
+    if (msg.channel.id === '719920516378657028' && (msg.content.startsWith('!') || msg.content.startsWith('?'))) {
         if (msg.member.voice.channel) {
         // Comandos para buscar equipos //
         if (msg.content.substring(0, 9) == '!buscoSOT') {
