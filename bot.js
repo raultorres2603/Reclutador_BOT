@@ -9,6 +9,8 @@ client.on('ready', () => {
     client.user.setActivity('BOT oficial Torres');
 });
 
+// NECESIDAD DE CANAL DE COMANDOS ESPECÍFICO
+
 client.on('message', msg => {
     // Si estamos en el canal de comandos
     if (msg.channel.id === '719920516378657028' && (msg.content.startsWith('!') || msg.content.startsWith('?'))) {
