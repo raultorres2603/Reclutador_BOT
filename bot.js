@@ -23,14 +23,13 @@ client.on('message', msg => {
             //Enviar mensaje a un canal
             //Poner entre corchetes con @ el ID de usuario y con @& si es un rol
             const channel = client.channels.cache.get('721356815643967590');
-            const embed = new Discord.RichEmbed()
+            const embed = new Discord.MessageEmbed()
             .setColor('#0099ff')
             .setAuthor(client.user.username)
             .setTitle('Confirmación')
-            .addFields (
-                { name: 'Notificacion', value: 'Hey! <@' + user + '>' + ' busca ' + msg.member.voice.channel.userLimit + ' soldados en el canal [<#' + msg.member.voice.channel.id + '>](' + msg.member.voice.channel.createInvite() + ')' },
-                { name: 'Plan', value: msg.content.substring(11) },
-            )
+            .addField ('Notificacion','Hey! <@' + user + '>' + ' busca ' + msg.member.voice.channel.userLimit + ' soldados')
+            .addField('Plan', msg.content.substring(10))
+            .addField('Canal', '[<#' + msg.member.voice.channel.id + '>](' + msg.member.voice.channel.createInvite() + ')')
             .setTimestamp()
 	        .setFooter('BOT oficial Torres');
             channel.send(embed)
@@ -43,14 +42,13 @@ client.on('message', msg => {
             //Enviar mensaje a un canal
             //Poner entre corchetes con @ el ID de usuario y con @& si es un rol
             const channel = client.channels.cache.get('721358528953974835');
-            const embed = new Discord.RichEmbed()
+            const embed = new Discord.MessageEmbed()
             .setColor('#0099ff')
             .setAuthor(client.user.username)
             .setTitle('Confirmación')
-            .addFields (
-                { name: 'Notificacion', value: 'Hey! <@' + user + '>' + ' busca ' + msg.member.voice.channel.userLimit + ' soldados en el canal [<#' + msg.member.voice.channel.id + '>](' + msg.member.voice.channel.createInvite() + ')' },
-                { name: 'Plan', value: msg.content.substring(11) },
-            )
+            .addField ('Notificacion','Hey! <@' + user + '>' + ' busca ' + msg.member.voice.channel.userLimit + ' invocadores')
+            .addField('Plan', msg.content.substring(10))
+            .addField('Canal', '[<#' + msg.member.voice.channel.id + '>](' + msg.member.voice.channel.createInvite() + ')')
             .setTimestamp()
 	        .setFooter('BOT oficial Torres');
             channel.send(embed)
@@ -63,14 +61,13 @@ client.on('message', msg => {
             //Enviar mensaje a un canal
             //Poner entre corchetes con @ el ID de usuario y con @& si es un rol
             const channel = client.channels.cache.get('721408023565697024');
-            const embed = new Discord.RichEmbed()
+            const embed = new Discord.MessageEmbed()
             .setColor('#0099ff')
             .setAuthor(client.user.username)
             .setTitle('Confirmación')
-            .addFields (
-                { name: 'Notificacion', value: 'Hey! <@' + user + '>' + ' busca ' + msg.member.voice.channel.userLimit + ' soldados en el canal [<#' + msg.member.voice.channel.id + '>](' + msg.member.voice.channel.createInvite() + ')' },
-                { name: 'Plan', value: msg.content.substring(11) },
-            )
+            .addField ('Notificacion','Hey! <@' + user + '>' + ' busca ' + msg.member.voice.channel.userLimit + ' soldados')
+            .addField('Plan', msg.content.substring(11))
+            .addField('Canal', '[<#' + msg.member.voice.channel.id + '>](' + msg.member.voice.channel.createInvite() + ')')
             .setTimestamp()
 	        .setFooter('BOT oficial Torres');
             channel.send(embed)
@@ -83,14 +80,13 @@ client.on('message', msg => {
             //Enviar mensaje a un canal
             //Poner entre corchetes con @ el ID de usuario y con @& si es un rol
             const channel = client.channels.cache.get('721471394671755368');
-            const embed = new Discord.RichEmbed()
+            const embed = new Discord.MessageEmbed()
             .setColor('#0099ff')
             .setAuthor(client.user.username)
             .setTitle('Confirmación')
-            .addFields (
-                { name: 'Notificacion', value: 'Hey! <@' + user + '>' + ' busca ' + msg.member.voice.channel.userLimit + ' soldados en el canal [<#' + msg.member.voice.channel.id + '>](' + msg.member.voice.channel.createInvite() + ')' },
-                { name: 'Plan', value: msg.content.substring(11) },
-            )
+            .addField ('Notificacion','Hey! <@' + user + '>' + ' busca ' + msg.member.voice.channel.userLimit + ' soldados')
+            .addField('Plan', msg.content.substring(10))
+            .addField('Canal', '[<#' + msg.member.voice.channel.id + '>](' + msg.member.voice.channel.createInvite() + ')')
             .setTimestamp()
 	        .setFooter('BOT oficial Torres');
             channel.send(embed)
