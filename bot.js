@@ -82,7 +82,7 @@ client.on('message', msg => {
             .setAuthor(client.user.username)
             .setTitle('Confirmación')
             .addField('Notificacion', 'Hey! ' + user + 'busca ' + msg.member.voice.channel.userLimit + ' soldados en el canal [<#' + msg.member.voice.channel.id + '>](' + msg.member.voice.channel.createInvite() + ') ')
-            .addField('Plan', msg.content.substring(10))
+            .addField('Plan', msg.content.substring(11))
             .setTimestamp()
 	        .setFooter('BOT oficial Torres');
             channel.send(embed)
