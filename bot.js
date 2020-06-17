@@ -3,7 +3,7 @@ require('dotenv').config();
 
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const avatar_url = 'https://www.google.com/search?q=caballero+medieval+wallpaper&client=firefox-b-d&sxsrf=ALeKk02sSlovHfrW96IA5KQ04itV5xEUzg:1592404722316&source=lnms&tbm=isch&sa=X&ved=2ahUKEwi8sL_uiYnqAhXgDWMBHdWRCS8Q_AUoAXoECAwQAw&biw=1920&bih=938#imgrc=7v38Yp1h7AJi_M';
+const avatar_url = 'https://lh3.googleusercontent.com/proxy/SK3HurdymtUsSf0_L1WDPrheXaWfhjrN47PWdbven_BimSP1jqmBGg1L9qnadsku_TxR51tCXHHLD6fcZC345_uKpuRr1_hzb4RtVr0hpyGiLhduFCBJQRDmwTYCbkiNnDamZMsw3braMKbMLVrYUEQOP7j53a0';
 
 client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`);
