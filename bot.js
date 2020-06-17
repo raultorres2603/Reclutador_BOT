@@ -3,6 +3,7 @@ require('dotenv').config();
 
 const Discord = require('discord.js');
 const client = new Discord.Client();
+const avatar_url = 'https://lh3.googleusercontent.com/proxy/SK3HurdymtUsSf0_L1WDPrheXaWfhjrN47PWdbven_BimSP1jqmBGg1L9qnadsku_TxR51tCXHHLD6fcZC345_uKpuRr1_hzb4RtVr0hpyGiLhduFCBJQRDmwTYCbkiNnDamZMsw3braMKbMLVrYUEQOP7j53a0';
 
 client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`);
@@ -26,7 +27,7 @@ client.on('message', msg => {
                         const channel = client.channels.cache.get('721356815643967590');
                         const embed = new Discord.MessageEmbed()
                             .setColor('#0099ff')
-                            .setAuthor(client.user.username)
+                            .setAuthor(client.user.username, avatar_url)
                             .setTitle('Anuncio')
                             .addField('Notificacion', 'Hey! <@' + user + '>' + ' busca ' + msg.member.voice.channel.userLimit + ' soldados')
                             .addField('Plan', msg.content.substring(10))
@@ -45,7 +46,7 @@ client.on('message', msg => {
                         const channel = client.channels.cache.get('721358528953974835');
                         const embed = new Discord.MessageEmbed()
                             .setColor('#0099ff')
-                            .setAuthor(client.user.username)
+                            .setAuthor(client.user.username, avatar_url)
                             .setTitle('Anuncio')
                             .addField('Notificacion', 'Hey! <@' + user + '>' + ' busca ' + msg.member.voice.channel.userLimit + ' invocadores')
                             .addField('Plan', msg.content.substring(10))
@@ -64,7 +65,7 @@ client.on('message', msg => {
                         const channel = client.channels.cache.get('721408023565697024');
                         const embed = new Discord.MessageEmbed()
                             .setColor('#0099ff')
-                            .setAuthor(client.user.username)
+                            .setAuthor(client.user.username, avatar_url)
                             .setTitle('Anuncio')
                             .addField('Notificacion', 'Hey! <@' + user + '>' + ' busca ' + msg.member.voice.channel.userLimit + ' soldados')
                             .addField('Plan', msg.content.substring(10))
@@ -83,7 +84,7 @@ client.on('message', msg => {
                         const channel = client.channels.cache.get('721471394671755368');
                         const embed = new Discord.MessageEmbed()
                             .setColor('#0099ff')
-                            .setAuthor(client.user.username)
+                            .setAuthor(client.user.username, avatar_url)
                             .setTitle('Anuncio')
                             .addField('Notificacion', 'Hey! <@' + user + '>' + ' busca ' + msg.member.voice.channel.userLimit + ' soldados')
                             .addField('Plan', msg.content.substring(11))
