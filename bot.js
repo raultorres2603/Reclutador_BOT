@@ -85,7 +85,7 @@ client.on('message', msg => {
                             .setColor('#0099ff')
                             .setAuthor(client.user.username)
                             .setTitle('Anuncio')
-                            .addField('Notificacion', 'Hey! <@' + user + '>' + ' busca ' + msg.member.voice.channel.userLimit - msg.member.voice.channel.members.size + ' soldados')
+                            .addField('Notificacion', 'Hey! <@' + user + '>' + ' busca ' + msg.member.voice.channel.userLimit - msg.member.voice.channel.members.size.valueOf() + ' soldados')
                             .addField('Plan', msg.content.substring(11))
                             .addField('Canal', '[<#' + msg.member.voice.channel.id + '>](https://discord.gg/' + invite.code + ')')
                             .setTimestamp()
