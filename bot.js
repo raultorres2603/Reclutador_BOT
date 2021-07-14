@@ -7,6 +7,7 @@ const avatar_url = 'https://lh3.googleusercontent.com/proxy/SK3HurdymtUsSf0_L1WD
 const ytdl = require('ytdl-core');
 var connection;
 var link;
+var dispatcher
 
 client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`);
@@ -24,11 +25,11 @@ client.on('message', async msg => {
             if (msg.content.startsWith('!unete')) {
                 // Only try to join the sender's voice channel if they are in one themselves
                 connection = await msg.member.voice.channel.join();
-                connection.play(ytdl('https://www.youtube.com/watch?v=zVx2rlzJhjw'));
+                dispatcher = connection.play(ytdl('https://www.youtube.com/watch?v=zVx2rlzJhjw', { filter: 'audioonly' }));
                 if (msg.content.startsWith('!vete')) {
                     msg.member.voice.channel.leave();
                 } if (msg.content.startsWith('!stop')) {
-                    connection.destroy();
+                    dispatcher.destroy();
                 }
             
             } 
