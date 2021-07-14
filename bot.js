@@ -18,12 +18,14 @@ client.on('message', msg => {
     if (msg.channel.id === '719920516378657028' && (msg.content.startsWith('!') || msg.content.startsWith('?'))) {
         if (msg.member.voice.channel) {
             // Unir al bot
-            if (msg.content == '!unete') {
+            if (msg.content.startsWith('!unete')) {
                 // Only try to join the sender's voice channel if they are in one themselves
                 let connection = msg.member.voice.channel.join();
                 let link = msg.content.substring(6);
 
-              }
+            } else if (msg.content.startsWith('!vete')) {
+                msg.member.voice.channel.leave();
+            }
 
 
             const invite = msg.member.voice.channel.createInvite()
