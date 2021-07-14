@@ -25,6 +25,10 @@ client.on('message', msg => {
 
             } else if (msg.content.startsWith('!vete')) {
                 msg.member.voice.channel.leave();
+            } else if (msg.content.startsWith('!play')) {
+                connection.play(ytdl(link, { filter: 'audioonly' }));
+            } else if (msg.content.startsWith('!stop')) {
+                connection.stop();
             }
 
 
