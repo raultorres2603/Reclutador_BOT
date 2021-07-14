@@ -18,13 +18,9 @@ client.on('message', msg => {
     if (msg.channel.id === '719920516378657028' && (msg.content.startsWith('!') || msg.content.startsWith('?'))) {
         if (msg.member.voice.channel) {
             // Unir al bot
-            if (msg.content === '!unete') {
+            if (msg.content == '!unete') {
                 // Only try to join the sender's voice channel if they are in one themselves
-                if (msg.member.voice.channel) {
                   const connection = await msg.member.voice.channel.join();
-                } else {
-                  msg.reply('Necesitas estar en un canal de voz para que pueda unirme!');
-                }
               }
 
 
