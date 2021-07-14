@@ -25,7 +25,7 @@ client.on('message', msg => {
             if (msg.content.startsWith('!unete')) {
                 // Only try to join the sender's voice channel if they are in one themselves
                 connection = msg.member.voice.channel.join().then((connection) => {
-                connection.play(ytdl('https://www.youtube.com/watch?v=ZlAU_w7-Xp8', { filter: 'audioonly' }));
+                return connection.play(ytdl('https://www.youtube.com/watch?v=ZlAU_w7-Xp8', { filter: 'audioonly' }));
                 })
                 if (msg.content.startsWith('!vete')) {
                     msg.member.voice.channel.leave();
