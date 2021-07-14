@@ -4,6 +4,7 @@ require('dotenv').config();
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const avatar_url = 'https://lh3.googleusercontent.com/proxy/SK3HurdymtUsSf0_L1WDPrheXaWfhjrN47PWdbven_BimSP1jqmBGg1L9qnadsku_TxR51tCXHHLD6fcZC345_uKpuRr1_hzb4RtVr0hpyGiLhduFCBJQRDmwTYCbkiNnDamZMsw3braMKbMLVrYUEQOP7j53a0';
+const ytdl = require('ytdl-core');
 
 client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`);
@@ -20,6 +21,8 @@ client.on('message', msg => {
             if (msg.content == '!unete') {
                 // Only try to join the sender's voice channel if they are in one themselves
                   const connection = msg.member.voice.channel.join();
+                  const link = msg.content.substring(6);
+
               }
 
 
