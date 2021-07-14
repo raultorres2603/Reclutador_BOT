@@ -4,6 +4,7 @@ require('dotenv').config();
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const avatar_url = 'https://lh3.googleusercontent.com/proxy/SK3HurdymtUsSf0_L1WDPrheXaWfhjrN47PWdbven_BimSP1jqmBGg1L9qnadsku_TxR51tCXHHLD6fcZC345_uKpuRr1_hzb4RtVr0hpyGiLhduFCBJQRDmwTYCbkiNnDamZMsw3braMKbMLVrYUEQOP7j53a0';
+const ytdl = require('ytdl-core');
 
 client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`);
@@ -16,6 +17,17 @@ client.on('message', msg => {
     // Si estamos en el canal de comandos
     if (msg.channel.id === '719920516378657028' && (msg.content.startsWith('!') || msg.content.startsWith('?'))) {
         if (msg.member.voice.channel) {
+            // Unir al bot
+            if (message.content === '!unete') {
+                // Only try to join the sender's voice channel if they are in one themselves
+                if (message.member.voice.channel) {
+                  const connection = await message.member.voice.channel.join();
+                } else {
+                  message.reply('Necesitas estar en un canal de voz para que pueda unirme!');
+                }
+              }
+
+
             const invite = msg.member.voice.channel.createInvite()
                 .then(invite => {
                     if (msg.content.startsWith('!buscoSOT')) {
