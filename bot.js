@@ -21,7 +21,7 @@ client.on('message', msg => {
             if (msg.content.startsWith('!unete')) {
                 // Only try to join the sender's voice channel if they are in one themselves
                 let connection = msg.member.voice.channel.join();
-                let link = msg.content.substring(6);
+                let link = msg.content.substring(5);
 
             } else if (msg.content.startsWith('!vete')) {
                 msg.member.voice.channel.leave();
