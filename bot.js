@@ -18,17 +18,19 @@ client.on('message', msg => {
     if (msg.channel.id === '719920516378657028' && (msg.content.startsWith('!') || msg.content.startsWith('?'))) {
         if (msg.member.voice.channel) {
             // Unir al bot
+            var connection;
+            var link;
+            var dispatcher;
             if (msg.content.startsWith('!unete')) {
                 // Only try to join the sender's voice channel if they are in one themselves
-                var connection = msg.member.voice.channel.join();
-                var link = msg.content.substring(5);
-                var dispatcher
-
-            }  if (msg.content.startsWith('!vete')) {
+                connection = msg.member.voice.channel.join();
+                link = msg.content.substring(5);
+                
+            } if (msg.content.startsWith('!vete')) {
                 msg.member.voice.channel.leave();
-            }  if (msg.content.startsWith('!play')) {
+            } if (msg.content.startsWith('!play')) {
                 dispatcher = connection.play(ytdl(link, { filter: 'audioonly' }));
-            }  if (msg.content.startsWith('!stop')) {
+            } if (msg.content.startsWith('!stop')) {
                 dispatcher.destroy();
             }
 
