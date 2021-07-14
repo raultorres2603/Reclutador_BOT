@@ -5,6 +5,9 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 const avatar_url = 'https://lh3.googleusercontent.com/proxy/SK3HurdymtUsSf0_L1WDPrheXaWfhjrN47PWdbven_BimSP1jqmBGg1L9qnadsku_TxR51tCXHHLD6fcZC345_uKpuRr1_hzb4RtVr0hpyGiLhduFCBJQRDmwTYCbkiNnDamZMsw3braMKbMLVrYUEQOP7j53a0';
 const ytdl = require('ytdl-core');
+var connection;
+var link;
+var dispatcher;
 
 client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`);
@@ -18,14 +21,12 @@ client.on('message', msg => {
     if (msg.channel.id === '719920516378657028' && (msg.content.startsWith('!') || msg.content.startsWith('?'))) {
         if (msg.member.voice.channel) {
             // Unir al bot
-            var connection;
-            var link;
-            var dispatcher;
+
             if (msg.content.startsWith('!unete')) {
                 // Only try to join the sender's voice channel if they are in one themselves
                 connection = msg.member.voice.channel.join();
                 link = msg.content.substring(5);
-                
+
             } if (msg.content.startsWith('!vete')) {
                 msg.member.voice.channel.leave();
             } if (msg.content.startsWith('!play')) {
