@@ -20,7 +20,7 @@ client.on('message', msg => {
             // Unir al bot
             if (msg.content == '!unete') {
                 // Only try to join the sender's voice channel if they are in one themselves
-                  const connection = await msg.member.voice.channel.join();
+                  const connection = msg.member.voice.channel.join();
               }
 
 
