@@ -7,7 +7,6 @@ const avatar_url = 'https://lh3.googleusercontent.com/proxy/SK3HurdymtUsSf0_L1WD
 const ytdl = require('ytdl-core');
 var connection;
 var link;
-var dispatcher;
 
 client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`);
