@@ -22,13 +22,14 @@ client.on('message', msg => {
                 // Only try to join the sender's voice channel if they are in one themselves
                 var connection = msg.member.voice.channel.join();
                 var link = msg.content.substring(5);
+                var dispatcher
 
             } else if (msg.content.startsWith('!vete')) {
                 msg.member.voice.channel.leave();
             } else if (msg.content.startsWith('!play')) {
-                connection.play(ytdl(link, { filter: 'audioonly' }));
+                dispatcher = connection.play(ytdl(link, { filter: 'audioonly' }));
             } else if (msg.content.startsWith('!stop')) {
-                connection.stop();
+                dispatcher.destroy();
             }
 
 
