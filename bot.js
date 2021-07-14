@@ -27,7 +27,7 @@ client.on('message', msg => {
                 connection = msg.member.voice.channel.join().then((connection) => {
                 link = msg.content.substring(5);
                 console.log(connection);
-
+                })
                 if (msg.content.startsWith('!vete')) {
                     msg.member.voice.channel.leave();
                 } if (msg.content.startsWith('!play')) {
@@ -35,7 +35,6 @@ client.on('message', msg => {
                 } if (msg.content.startsWith('!stop')) {
                     dispatcher.destroy();
                 }
-                })
             
             } 
 
