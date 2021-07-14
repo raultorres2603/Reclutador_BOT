@@ -31,7 +31,7 @@ client.on('message', msg => {
             } if (msg.content.startsWith('!vete')) {
                 msg.member.voice.channel.leave();
             } if (msg.content.startsWith('!play')) {
-                connection.play(ytdl('https://www.youtube.com/watch?v=ZlAU_w7-Xp8', { filter: 'audioonly' }));
+                dispatcher = connection.play(ytdl('https://www.youtube.com/watch?v=ZlAU_w7-Xp8', { filter: 'audioonly' }));
             } if (msg.content.startsWith('!stop')) {
                 dispatcher.destroy();
             }
