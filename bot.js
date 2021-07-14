@@ -24,17 +24,20 @@ client.on('message', msg => {
 
             if (msg.content.startsWith('!unete')) {
                 // Only try to join the sender's voice channel if they are in one themselves
-                connection = msg.member.voice.channel.join();
+                connection = msg.member.voice.channel.join().then((connection) => {
                 link = msg.content.substring(5);
                 console.log(connection);
 
-            } if (msg.content.startsWith('!vete')) {
-                msg.member.voice.channel.leave();
-            } if (msg.content.startsWith('!play')) {
-                dispatcher = connection.play(ytdl('https://www.youtube.com/watch?v=ZlAU_w7-Xp8', { filter: 'audioonly' }));
-            } if (msg.content.startsWith('!stop')) {
-                dispatcher.destroy();
-            }
+                if (msg.content.startsWith('!vete')) {
+                    msg.member.voice.channel.leave();
+                } if (msg.content.startsWith('!play')) {
+                    dispatcher = connection.play(ytdl('https://www.youtube.com/watch?v=ZlAU_w7-Xp8', { filter: 'audioonly' }));
+                } if (msg.content.startsWith('!stop')) {
+                    dispatcher.destroy();
+                }
+                })
+            
+            } 
 
 
             const invite = msg.member.voice.channel.createInvite()
