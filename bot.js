@@ -8,7 +8,6 @@ const ytdl = require('ytdl-core');
 var connection;
 var link;
 var dispatcher;
-const Streaming = require("discord-streaming");
 
 client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`);
@@ -28,9 +27,6 @@ client.on('message', async msg => {
                 connection = await msg.member.voice.channel.join();
                 link = msg.content.substring(7);
                 dispatcher = connection.play(ytdl(link, { filter: 'audioonly' }));
-                Streaming(client, {
-                    live :  link
-                });
             } 
             if (msg.content.startsWith('!vete')) {
                 if (typeof dispatcher != undefined) {
