@@ -24,11 +24,11 @@ client.on('message', msg => {
                 var link = msg.content.substring(5);
                 var dispatcher
 
-            } else if (msg.content.startsWith('!vete')) {
+            }  if (msg.content.startsWith('!vete')) {
                 msg.member.voice.channel.leave();
-            } else if (msg.content.startsWith('!play')) {
+            }  if (msg.content.startsWith('!play')) {
                 dispatcher = connection.play(ytdl(link, { filter: 'audioonly' }));
-            } else if (msg.content.startsWith('!stop')) {
+            }  if (msg.content.startsWith('!stop')) {
                 dispatcher.destroy();
             }
 
