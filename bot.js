@@ -28,6 +28,9 @@ client.on('message', async msg => {
                 dispatcher = connection.play(ytdl('https://www.youtube.com/watch?v=zVx2rlzJhjw', { filter: 'audioonly' }));
             } 
             if (msg.content.startsWith('!vete')) {
+                if (typeof dispatcher != undefined) {
+                    dispatcher.destroy();
+                }
                 msg.member.voice.channel.leave();
             } if (msg.content.startsWith('!stop')) {
                 dispatcher.destroy();
