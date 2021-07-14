@@ -26,6 +26,7 @@ client.on('message', msg => {
                 // Only try to join the sender's voice channel if they are in one themselves
                 connection = msg.member.voice.channel.join();
                 link = msg.content.substring(5);
+                console.log(connection);
 
             } if (msg.content.startsWith('!vete')) {
                 msg.member.voice.channel.leave();
