@@ -35,8 +35,8 @@ client.on('message', async msg => {
                 let url = await searchYouTubeAsync(link);
                 if (posicion_videos == 0 && videos.length == 0) {
                     videos.push(url);
-                    let stream = ytdl(url, { filter: 'audioonly', volume: '0.5' });
-                    dispatcher = connection.play(stream);
+                    let stream = ytdl(url, { filter: 'audioonly' });
+                    dispatcher = connection.play(stream, { volume: '0.5' });
                     // Hay que poner finish en vez de end, ni puto caso a la documentación oficial
                     // https://stackoverflow.com/questions/61050918/discord-js-bot-unable-to-leave-voice-channel
                     dispatcher.on('finish', () => {
@@ -47,8 +47,8 @@ client.on('message', async msg => {
                             msg.member.voice.channel.leave();
                         } else {
                             posicion_videos++;
-                            let stream = ytdl(videos[posicion_videos], { filter: 'audioonly', volume: '0.5'  });
-                            dispatcher = connection.play(stream);
+                            let stream = ytdl(videos[posicion_videos], { filter: 'audioonly' });
+                            dispatcher = connection.play(stream, { volume: '0.5' });
                         }
                     })
                     msg.reply(`Se ha añadido tu canción y se reproducirá ahora: ${url}`);
@@ -80,8 +80,8 @@ client.on('message', async msg => {
                     msg.reply("No hay más canciones, esta es la última.");
                 } else {
                     posicion_videos++;
-                    let stream = ytdl(videos[posicion_videos], { filter: 'audioonly', volume: '0.5'  });
-                    dispatcher = connection.play(stream);
+                    let stream = ytdl(videos[posicion_videos], { filter: 'audioonly' });
+                    dispatcher = connection.play(stream, { volume: '0.5' });
                     msg.reply(`Se ha pasado a la siguiente canción: ${videos[posicion_videos]}`);
                 }
             }
