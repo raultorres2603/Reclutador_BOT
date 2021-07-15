@@ -37,8 +37,10 @@ client.on('message', async msg => {
                     videos.push(url);
                     let stream = ytdl(url, { filter: 'audioonly' });
                     dispatcher = connection.play(stream);
+                    msg.reply(`Se ha añadido tu canción y se reproducirá ahora: ${url}`);
                 } else {
                     videos.push(url);
+                    msg.reply(`Se ha añadido tu canción: ${url}`);
                 }
 
                 dispatcher.on('end', () => {
