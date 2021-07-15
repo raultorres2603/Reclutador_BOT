@@ -48,7 +48,7 @@ client.on('message', async msg => {
                 */
 
             }
-            dispatcher.on('end', () => {
+            dispatcher.on('finish', () => {
                 if (posicion_videos + 1 == videos.length) {
                     dispatcher.destroy();
                     videos = new Array();
