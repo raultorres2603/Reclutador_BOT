@@ -66,13 +66,13 @@ client.on('message', async msg => {
                 if (typeof dispatcher != undefined) {
                     dispatcher = undefined;
                     videos = new Array();
-                    i = 0;
+                    posicion_videos = 0;
                 }
                 msg.member.voice.channel.leave();
             } if (msg.content.startsWith('!stop')) {
                 dispatcher = undefined;
                 videos = new Array();
-                i = 0;
+                posicion_videos = 0;
             }
 
             if (msg.content.startsWith('!skip')) {
