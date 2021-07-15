@@ -30,7 +30,7 @@ client.on('message', async msg => {
                 // Only try to join the sender's voice channel if they are in one themselves
                 connection = await msg.member.voice.channel.join();
                 link = msg.content.substring(7);
-                let url = await searchYouTubeAsync(args);
+                let url = await searchYouTubeAsync(link);
                 let stream = ytdl(url, { filter: 'audioonly' });
                 dispatcher = connection.playStream(stream);
 
