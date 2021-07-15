@@ -37,6 +37,18 @@ client.on('message', async msg => {
                     videos.push(url);
                     let stream = ytdl(url, { filter: 'audioonly' });
                     dispatcher = connection.play(stream);
+                    dispatcher.on('end', () => {
+                        if (posicion_videos + 1 == videos.length) {
+                            dispatcher.destroy();
+                            videos = new Array();
+                            posicion_videos = 0;
+                            msg.member.voice.channel.leave();
+                        } else {
+                            posicion_videos++;
+                            let stream = ytdl(videos[posicion_videos], { filter: 'audioonly' });
+                            dispatcher = connection.play(stream);
+                        }
+                    })
                     msg.reply(`Se ha añadido tu canción y se reproducirá ahora: ${url}`);
                 } else {
                     videos.push(url);
@@ -162,19 +174,6 @@ client.on('message', async msg => {
         msg.reply('Éste canal no admite comandos, visita <#719920516378657028>');
     }
 });
-
-dispatcher.on('end', () => {
-    if (posicion_videos + 1 == videos.length) {
-        dispatcher.destroy();
-        videos = new Array();
-        posicion_videos = 0;
-        msg.member.voice.channel.leave();
-    } else {
-        posicion_videos++;
-        let stream = ytdl(videos[posicion_videos], { filter: 'audioonly' });
-        dispatcher = connection.play(stream);
-    }
-})
 
 async function searchYouTubeAsync(args) {
     var video = await youtube.searchVideos(args.toString().replace(/,/g, ' '));
