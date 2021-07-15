@@ -47,7 +47,7 @@ client.on('message', async msg => {
                             msg.member.voice.channel.leave();
                         } else {
                             posicion_videos++;
-                            let stream = ytdl(videos[posicion_videos], { filter: 'audioonly' });
+                            let stream = ytdl(videos[posicion_videos], { filter: 'audioonly', volume: '0.8'  });
                             dispatcher = connection.play(stream);
                         }
                     })
@@ -80,7 +80,7 @@ client.on('message', async msg => {
                     msg.reply("No hay más canciones, esta es la última.");
                 } else {
                     posicion_videos++;
-                    let stream = ytdl(videos[posicion_videos], { filter: 'audioonly' });
+                    let stream = ytdl(videos[posicion_videos], { filter: 'audioonly', volume: '0.8'  });
                     dispatcher = connection.play(stream);
                     msg.reply(`Se ha pasado a la siguiente canción: ${videos[posicion_videos]}`);
                 }
