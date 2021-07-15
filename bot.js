@@ -36,7 +36,9 @@ client.on('message', async msg => {
                       console.log(error);
                     }
                     else {
-                      msg.reply(JSON.stringify(result));
+                      result.forEach((video, index) => {
+                          msg.channel.send(`${index}: ${video.snippet.title}`);
+                      });;
                     }
                   });
             }
