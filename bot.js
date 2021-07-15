@@ -11,7 +11,7 @@ var dispatcher;
 var videos = new Array();
 var YOUTUBE_CRED = `${process.env.YOUTUBE_API}`;
 var YouTube = require("discord-youtube-api");
-var posicion_videos = 0;
+let posicion_videos = 0;
 
 var youtube = new YouTube(`${YOUTUBE_CRED}`);
 
