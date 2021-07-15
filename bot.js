@@ -8,7 +8,7 @@ const ytdl = require('ytdl-core');
 var connection;
 var link;
 var dispatcher;
-var videos = new Array();
+var videos = [];
 var YOUTUBE_CRED = `${process.env.YOUTUBE_API}`;
 var YouTube = require("discord-youtube-api");
 let posicion_videos = 0;
@@ -52,7 +52,7 @@ client.on('message', async msg => {
                 dispatcher.on('finish', () => {
                     if (posicion_videos == videos.length) {
                         dispatcher = undefined;
-                        videos = new Array();
+                        videos = [];
                         posicion_videos = 0;
                         msg.member.voice.channel.leave();
                     } else {
@@ -65,13 +65,13 @@ client.on('message', async msg => {
             if (msg.content.startsWith('!vete')) {
                 if (typeof dispatcher != undefined) {
                     dispatcher = undefined;
-                    videos = new Array();
+                    videos = [];
                     posicion_videos = 0;
                 }
                 msg.member.voice.channel.leave();
             } if (msg.content.startsWith('!stop')) {
                 dispatcher = undefined;
-                videos = new Array();
+                videos = [];
                 posicion_videos = 0;
             }
 
