@@ -37,18 +37,6 @@ client.on('message', async msg => {
                     videos.push(url);
                     let stream = ytdl(url, { filter: 'audioonly' });
                     dispatcher = connection.play(stream);
-                    dispatcher.on('end', () => {
-                        if (posicion_videos + 1 == videos.length) {
-                            dispatcher.destroy();
-                            videos = new Array();
-                            posicion_videos = 0;
-                            msg.member.voice.channel.leave();
-                        } else {
-                            posicion_videos++;
-                            let stream = ytdl(videos[posicion_videos], { filter: 'audioonly' });
-                            dispatcher = connection.play(stream);
-                        }
-                    })
                     msg.reply(`Se ha añadido tu canción y se reproducirá ahora: ${url}`);
                 } else {
                     videos.push(url);
@@ -60,6 +48,18 @@ client.on('message', async msg => {
                 */
 
             }
+            dispatcher.on('end', () => {
+                if (posicion_videos + 1 == videos.length) {
+                    dispatcher.destroy();
+                    videos = new Array();
+                    posicion_videos = 0;
+                    msg.member.voice.channel.leave();
+                } else {
+                    posicion_videos++;
+                    let stream = ytdl(videos[posicion_videos], { filter: 'audioonly' });
+                    dispatcher = connection.play(stream);
+                }
+            })
             if (msg.content.startsWith('!vete')) {
                 if (typeof dispatcher != undefined) {
                     dispatcher.destroy();
