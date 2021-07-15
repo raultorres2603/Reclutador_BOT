@@ -44,7 +44,7 @@ client.on('message', async msg => {
                             posicion_videos = 0;
                             msg.member.voice.channel.leave();
                         } else {
-                            dispatcher = undefined;
+                            dispatcher = null;
                             posicion_videos++;
                             let stream = ytdl(videos[posicion_videos], { filter: 'audioonly' });
                             dispatcher = connection.play(stream);
