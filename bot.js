@@ -75,7 +75,7 @@ client.on('message', async msg => {
             }
 
             if (msg.content.startsWith('!skip')) {
-                if (posicion_videos == videos.length) {
+                if (posicion_videos == videos.length - 1) {
                     msg.reply("No hay más canciones, esta es la última.");
                 } else {
                     posicion_videos++;
