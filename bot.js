@@ -36,7 +36,7 @@ client.on('message', async msg => {
                       console.log(error);
                     }
                     else {
-                      msg.reply(JSON.stringify(result, null, 2));
+                      msg.reply(JSON.stringify(result));
                     }
                   });
             }
