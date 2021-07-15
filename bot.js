@@ -35,7 +35,7 @@ client.on('message', async msg => {
                 let url = await searchYouTubeAsync(link);
                 if (posicion_videos == 0 && videos.length == 0) {
                     videos.push(url);
-                    let stream = ytdl(url, { filter: 'audioonly' });
+                    let stream = ytdl(url, { filter: 'audioonly', volume: '0.8' });
                     dispatcher = connection.play(stream);
                     // Hay que poner finish en vez de end, ni puto caso a la documentación oficial
                     // https://stackoverflow.com/questions/61050918/discord-js-bot-unable-to-leave-voice-channel
