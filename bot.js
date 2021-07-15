@@ -10,9 +10,6 @@ var link;
 var dispatcher;
 var YOUTUBE_CRED = `${process.env.YOUTUBE_API}`;
 
-var YouTube = require('youtube-node');
-var youTube = new YouTube();
-youTube.setKey(YOUTUBE_CRED);
 
 client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`);
