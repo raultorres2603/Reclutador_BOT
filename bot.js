@@ -72,22 +72,6 @@ client.on('message', async msg => {
                 }
             }
 
-            setInterval(() => {
-                dispatcher.on('end', () => {
-                    if (posicion_videos + 1 == videos.length) {
-                        dispatcher.destroy();
-                        videos = new Array();
-                        posicion_videos = 0;
-                        msg.member.voice.channel.leave();
-                    } else {
-                        posicion_videos++;
-                        let stream = ytdl(videos[posicion_videos], { filter: 'audioonly' });
-                        dispatcher = connection.play(stream);
-                    }
-                })
-            }, 1000);
-
-
             const invite = msg.member.voice.channel.createInvite()
                 .then(invite => {
                     if (msg.content.startsWith('!buscoSOT')) {
@@ -178,6 +162,19 @@ client.on('message', async msg => {
         msg.reply('Éste canal no admite comandos, visita <#719920516378657028>');
     }
 });
+
+dispatcher.on('end', () => {
+    if (posicion_videos + 1 == videos.length) {
+        dispatcher.destroy();
+        videos = new Array();
+        posicion_videos = 0;
+        msg.member.voice.channel.leave();
+    } else {
+        posicion_videos++;
+        let stream = ytdl(videos[posicion_videos], { filter: 'audioonly' });
+        dispatcher = connection.play(stream);
+    }
+})
 
 async function searchYouTubeAsync(args) {
     var video = await youtube.searchVideos(args.toString().replace(/,/g, ' '));
