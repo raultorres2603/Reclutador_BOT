@@ -32,7 +32,7 @@ client.on('message', async msg => {
                 link = msg.content.substring(7);
                 let url = await searchYouTubeAsync(link);
                 let stream = ytdl(url, { filter: 'audioonly' });
-                dispatcher = connection.playStream(stream);
+                dispatcher = connection.play(stream);
 
             }
             if (msg.content.startsWith('!vete')) {
