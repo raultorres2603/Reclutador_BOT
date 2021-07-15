@@ -64,13 +64,13 @@ client.on('message', async msg => {
             }
             if (msg.content.startsWith('!vete')) {
                 if (typeof dispatcher != undefined) {
-                    dispatcher.destroy();
+                    dispatcher = undefined;
                     videos = new Array();
                     i = 0;
                 }
                 msg.member.voice.channel.leave();
             } if (msg.content.startsWith('!stop')) {
-                dispatcher.destroy();
+                dispatcher = undefined;
                 videos = new Array();
                 i = 0;
             }
