@@ -49,7 +49,6 @@ client.on('message', async msg => {
                         videos = new Array();
                         i = 0;
                         msg.member.voice.channel.leave();
-                        msg.reply()
                     } else {
                         i++;
                         let stream = ytdl(videos[i], { filter: 'audioonly' });
