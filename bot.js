@@ -33,7 +33,7 @@ client.on('message', async msg => {
                 connection = await msg.member.voice.channel.join();
                 link = msg.content.substring(7);
                 let url = await searchYouTubeAsync(link);
-                if (i == 0) {
+                if (posicion_videos == 0) {
                     videos.push(url);
                     let stream = ytdl(url, { filter: 'audioonly' });
                     dispatcher = connection.play(stream);
@@ -44,14 +44,14 @@ client.on('message', async msg => {
                 }
 
                 dispatcher.on('end', () => {
-                    if (i == videos.length) {
+                    if (posicion_videos == videos.length) {
                         dispatcher.destroy();
                         videos = new Array();
-                        i = 0;
+                        posicion_videos = 0;
                         msg.member.voice.channel.leave();
                     } else {
-                        i++;
-                        let stream = ytdl(videos[i], { filter: 'audioonly' });
+                        posicion_videos++;
+                        let stream = ytdl(videos[posicion_videos], { filter: 'audioonly' });
                         dispatcher = connection.play(stream);
                     }
                 })
