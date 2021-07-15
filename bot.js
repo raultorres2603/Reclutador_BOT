@@ -8,6 +8,11 @@ const ytdl = require('ytdl-core');
 var connection;
 var link;
 var dispatcher;
+var YOUTUBE_CRED = `${process.env.YOUTUBE_API}`;
+
+var YouTube = require('youtube-node');
+var youTube = new YouTube();
+youTube.setKey(YOUTUBE_CRED);
 
 client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`);
@@ -26,7 +31,13 @@ client.on('message', async msg => {
                 // Only try to join the sender's voice channel if they are in one themselves
                 connection = await msg.member.voice.channel.join();
                 link = msg.content.substring(7);
-                dispatcher = connection.play(ytdl(link, { filter: 'audioonly' }));
+                youTube.search(link, 2, function(error, result) {
+                    if (error) {
+                      console.log(error);
+                    }
+                    else {
+                      msg.reply(JSON.stringify(result, null, 2))
+                    }
             } 
             if (msg.content.startsWith('!vete')) {
                 if (typeof dispatcher != undefined) {
