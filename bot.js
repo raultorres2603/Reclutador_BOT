@@ -40,7 +40,7 @@ client.on('message', async msg => {
                     // Hay que poner finish en vez de end, ni puto caso a la documentación oficial
                     // https://stackoverflow.com/questions/61050918/discord-js-bot-unable-to-leave-voice-channel
                     dispatcher.on('finish', () => {
-                        if (posicion_videos == videos.length) {
+                        if (posicion_videos + 1 == videos.length) {
                             dispatcher = undefined;
                             videos = new Array();
                             posicion_videos = 0;
