@@ -74,6 +74,17 @@ client.on('message', async msg => {
                 i = 0;
             }
 
+            if (msg.content.startsWith('!skip')) {
+                if (posicion_videos == videos.length) {
+                    msg.reply("No hay más canciones, esta es la última.");
+                } else {
+                    posicion_videos++;
+                    let stream = ytdl(url, { filter: 'audioonly' });
+                    dispatcher = connection.play(stream);
+                    msg.reply(`Se ha pasado a la siguiente canción: ${videos[posicion_videos]}`);
+                }
+            }
+
 
             const invite = msg.member.voice.channel.createInvite()
                 .then(invite => {
