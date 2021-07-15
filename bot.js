@@ -31,16 +31,7 @@ client.on('message', async msg => {
                 // Only try to join the sender's voice channel if they are in one themselves
                 connection = await msg.member.voice.channel.join();
                 link = msg.content.substring(7);
-                youTube.search(link, 2, function(error, result) {
-                    if (error) {
-                      console.log(error);
-                    }
-                    else {
-                      result.forEach((video, index) => {
-                          msg.channel.send(`${index}: ${video.snippet.title}`);
-                      });;
-                    }
-                  });
+                
             }
 if (msg.content.startsWith('!vete')) {
     if (typeof dispatcher != undefined) {
