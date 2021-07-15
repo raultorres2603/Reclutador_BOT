@@ -12,7 +12,6 @@ var videos = [];
 var YOUTUBE_CRED = `${process.env.YOUTUBE_API}`;
 var YouTube = require("discord-youtube-api");
 var posicion_videos = 0;
-var posicion_canciones = 0;
 
 var youtube = new YouTube(`${YOUTUBE_CRED}`);
 
@@ -35,15 +34,13 @@ client.on('message', async msg => {
                 link = msg.content.substring(7);
                 let url = await searchYouTubeAsync(link);
                 if (posicion_videos == 0 && videos.length == 0) {
-                    videos[0] = url;
+                    videos.push(url);
                     let stream = ytdl(url, { filter: 'audioonly' });
                     dispatcher = connection.play(stream, { volume: '0.5' });
-                    posicion_canciones++;
 
                     msg.reply(`Se ha añadido tu canción y se reproducirá ahora: ${url}`);
                 } else {
-                    videos[posicion_canciones] = url;
-                    posicion_canciones++;
+                    videos.push(url);
                     msg.reply(`Se ha añadido tu canción: ${url}`);
                 }
                 /*
@@ -57,7 +54,6 @@ client.on('message', async msg => {
                         dispatcher = undefined;
                         videos = [];
                         posicion_videos = 0;
-                        posicion_canciones = 0;
                         msg.member.voice.channel.leave();
                     } else {
                         posicion_videos++;
@@ -71,14 +67,12 @@ client.on('message', async msg => {
                     dispatcher = undefined;
                     videos = [];
                     posicion_videos = 0;
-                    posicion_canciones = 0;
                 }
                 msg.member.voice.channel.leave();
             } if (msg.content.startsWith('!stop')) {
                 dispatcher = undefined;
                 videos = [];
                 posicion_videos = 0;
-                posicion_canciones = 0;
             }
 
             if (msg.content.startsWith('!skip')) {
