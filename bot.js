@@ -37,7 +37,20 @@ client.on('message', async msg => {
                     videos.push(url);
                     let stream = ytdl(url, { filter: 'audioonly' });
                     dispatcher = connection.play(stream, { volume: '0.5' });
-
+                    // Hay que poner finish en vez de end, ni puto caso a la documentación oficial
+                    // https://stackoverflow.com/questions/61050918/discord-js-bot-unable-to-leave-voice-channel
+                    dispatcher.on('finish', () => {
+                        if (posicion_videos == videos.length) {
+                            dispatcher = undefined;
+                            videos = [];
+                            posicion_videos = 0;
+                            msg.member.voice.channel.leave();
+                        } else {
+                            posicion_videos++;
+                            let stream = ytdl(videos[posicion_videos], { filter: 'audioonly' });
+                            dispatcher = connection.play(stream, { volume: '0.5' });
+                        }
+                    })
                     msg.reply(`Se ha añadido tu canción y se reproducirá ahora: ${url}`);
                 } else {
                     videos.push(url);
@@ -47,20 +60,7 @@ client.on('message', async msg => {
                 let stream = ytdl(url, { filter: 'audioonly' });
                 dispatcher = connection.play(stream);
                 */
-                // Hay que poner finish en vez de end, ni puto caso a la documentación oficial
-                // https://stackoverflow.com/questions/61050918/discord-js-bot-unable-to-leave-voice-channel
-                dispatcher.on('finish', () => {
-                    if (posicion_videos == videos.length) {
-                        dispatcher = undefined;
-                        videos = [];
-                        posicion_videos = 0;
-                        msg.member.voice.channel.leave();
-                    } else {
-                        posicion_videos++;
-                        let stream = ytdl(videos[posicion_videos], { filter: 'audioonly' });
-                        dispatcher = connection.play(stream, { volume: '0.5' });
-                    }
-                })
+
             }
             if (msg.content.startsWith('!vete')) {
                 if (typeof dispatcher != undefined) {
