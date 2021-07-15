@@ -49,7 +49,7 @@ client.on('message', async msg => {
 
             }
             dispatcher.on('finish', () => {
-                if (posicion_videos + 1 == videos.length) {
+                if (posicion_videos == videos.length) {
                     dispatcher.destroy();
                     videos = new Array();
                     posicion_videos = 0;
