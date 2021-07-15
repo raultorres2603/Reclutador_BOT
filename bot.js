@@ -41,7 +41,7 @@ client.on('message', async msg => {
                     // https://stackoverflow.com/questions/61050918/discord-js-bot-unable-to-leave-voice-channel
                     dispatcher.on('finish', () => {
                         if (posicion_videos == videos.length) {
-                            dispatcher.destroy();
+                            dispatcher = undefined;
                             videos = new Array();
                             posicion_videos = 0;
                             msg.member.voice.channel.leave();
