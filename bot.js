@@ -33,7 +33,7 @@ client.on('message', async msg => {
                 connection = await msg.member.voice.channel.join();
                 link = msg.content.substring(7);
                 let url = await searchYouTubeAsync(link);
-                if (posicion_videos == 0) {
+                if (posicion_videos == 0 && typeof dispatcher == undefined) {
                     videos.push(url);
                     let stream = ytdl(url, { filter: 'audioonly' });
                     dispatcher = connection.play(stream);
