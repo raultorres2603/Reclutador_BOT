@@ -71,12 +71,14 @@ client.on('message', async msg => {
                     dispatcher = undefined;
                     videos = [];
                     posicion_videos = 0;
+                    posicion_canciones = 0;
                 }
                 msg.member.voice.channel.leave();
             } if (msg.content.startsWith('!stop')) {
                 dispatcher = undefined;
                 videos = [];
                 posicion_videos = 0;
+                posicion_canciones = 0;
             }
 
             if (msg.content.startsWith('!skip')) {
