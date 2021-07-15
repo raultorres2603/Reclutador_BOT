@@ -8,8 +8,10 @@ const ytdl = require('ytdl-core');
 var connection;
 var link;
 var dispatcher;
+var videos = new Array();
 var YOUTUBE_CRED = `${process.env.YOUTUBE_API}`;
 var YouTube = require("discord-youtube-api");
+var posicion_videos = 0;
 
 var youtube = new YouTube(`${YOUTUBE_CRED}`);
 
@@ -31,17 +33,44 @@ client.on('message', async msg => {
                 connection = await msg.member.voice.channel.join();
                 link = msg.content.substring(7);
                 let url = await searchYouTubeAsync(link);
+                if (i == 0) {
+                    videos.push(url);
+                    let stream = ytdl(url, { filter: 'audioonly' });
+                    dispatcher = connection.play(stream);
+                } else {
+                    videos.push(url);
+                }
+
+                dispatcher.on('end', () => {
+                    if (i == videos.length) {
+                        dispatcher.destroy();
+                        videos = new Array();
+                        i = 0;
+                        msg.member.voice.channel.leave();
+                        msg.reply()
+                    } else {
+                        i++;
+                        let stream = ytdl(videos[i], { filter: 'audioonly' });
+                        dispatcher = connection.play(stream);
+                    }
+                })
+                /*
                 let stream = ytdl(url, { filter: 'audioonly' });
                 dispatcher = connection.play(stream);
+                */
 
             }
             if (msg.content.startsWith('!vete')) {
                 if (typeof dispatcher != undefined) {
                     dispatcher.destroy();
+                    videos = new Array();
+                    i = 0;
                 }
                 msg.member.voice.channel.leave();
             } if (msg.content.startsWith('!stop')) {
                 dispatcher.destroy();
+                videos = new Array();
+                i = 0;
             }
 
 
