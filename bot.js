@@ -46,7 +46,7 @@ client.on('message', async msg => {
                             posicion_videos = 0;
                             msg.member.voice.channel.leave();
                         } else {
-                            nextSong();
+                            await nextSong();
                         }
                     })
                     msg.reply(`Se ha añadido tu canción y se reproducirá ahora: ${url}`);
@@ -77,7 +77,7 @@ client.on('message', async msg => {
                 if (posicion_videos == videos.length) {
                     msg.reply("No hay más canciones, esta es la última.");
                 } else {
-                    nextSong();
+                    await nextSong();
                     msg.reply(`Se ha pasado a la siguiente canción: ${videos[posicion_videos]}`);
                 }
             }
