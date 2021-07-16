@@ -28,7 +28,7 @@ client.on('message', async msg => {
         if (msg.member.voice.channel) {
             // Unir al bot
 
-            if (msg.content.startsWith('!unete')) {
+            if (msg.content.startsWith('!play')) {
                 // Only try to join the sender's voice channel if they are in one themselves
                 connection = await msg.member.voice.channel.join();
                 link = msg.content.substring(7);
@@ -60,7 +60,7 @@ client.on('message', async msg => {
                 */
 
             }
-            if (msg.content.startsWith('!vete')) {
+            if (msg.content.startsWith('!leave')) {
                 if (typeof dispatcher != undefined) {
                     dispatcher = undefined;
                     videos = [];
