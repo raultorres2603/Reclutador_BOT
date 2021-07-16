@@ -30,32 +30,34 @@ client.on('message', async msg => {
 
             if (msg.content.startsWith('!unete')) {
                 // Only try to join the sender's voice channel if they are in one themselves
-                connection = await msg.member.voice.channel.join();
-                link = msg.content.substring(7);
-                let url = await searchYouTubeAsync(link);
-                if (posicion_videos == 0 && videos.length == 0) {
-                    videos.push(url);
-                    let stream = ytdl(url, { filter: 'audioonly' });
-                    dispatcher = connection.play(stream, { volume: '0.5' });
-                    // Hay que poner finish en vez de end, ni puto caso a la documentación oficial
-                    // https://stackoverflow.com/questions/61050918/discord-js-bot-unable-to-leave-voice-channel
-                    dispatcher.on('finish', () => {
-                        if (posicion_videos == videos.length) {
-                            dispatcher = undefined;
-                            videos = [];
-                            posicion_videos = 0;
-                            msg.member.voice.channel.leave();
-                        } else {
-                            posicion_videos++;
-                            let stream = ytdl(videos[posicion_videos], { filter: 'audioonly' });
-                            dispatcher = connection.play(stream, { volume: '0.5' });
-                        }
-                    })
-                    msg.reply(`Se ha añadido tu canción y se reproducirá ahora: ${url}`);
-                } else {
-                    videos.push(url);
-                    msg.reply(`Se ha añadido tu canción: ${url}`);
-                }
+                msg.member.voice.channel.join().then(async connection => {
+                    link = msg.content.substring(7);
+                    let url = await searchYouTubeAsync(link);
+                    if (posicion_videos == 0 && videos.length == 0) {
+                        videos.push(url);
+                        let stream = ytdl(url, { filter: 'audioonly' });
+                        dispatcher = connection.play(stream, { volume: '0.5' });
+                        // Hay que poner finish en vez de end, ni puto caso a la documentación oficial
+                        // https://stackoverflow.com/questions/61050918/discord-js-bot-unable-to-leave-voice-channel
+                        dispatcher.on('finish', () => {
+                            if (posicion_videos == videos.length) {
+                                dispatcher = undefined;
+                                videos = [];
+                                posicion_videos = 0;
+                                msg.member.voice.channel.leave();
+                            } else {
+                                posicion_videos++;
+                                let stream = ytdl(videos[posicion_videos], { filter: 'audioonly' });
+                                dispatcher = connection.play(stream, { volume: '0.5' });
+                            }
+                        })
+                        msg.reply(`Se ha añadido tu canción y se reproducirá ahora: ${url}`);
+                    } else {
+                        videos.push(url);
+                        msg.reply(`Se ha añadido tu canción: ${url}`);
+                    }
+                });
+
                 /*
                 let stream = ytdl(url, { filter: 'audioonly' });
                 dispatcher = connection.play(stream);
