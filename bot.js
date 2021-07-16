@@ -180,7 +180,7 @@ client.on('message', async msg => {
 });
 
 async function searchYouTubeAsync(args) {
-    var video = await youtube.searchVideos(args.toString().replace(/,/g, ' '));
+    var video = await youtube.searchVideos(args.toString());
     return video.url.toString();
 }
 
