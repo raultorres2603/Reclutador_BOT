@@ -46,7 +46,6 @@ client.on('message', async msg => {
                             posicion_videos = 0;
                             msg.member.voice.channel.leave();
                         } else {
-                            actualizarPosicion();
                             nextSong();
                         }
                     })
@@ -78,7 +77,6 @@ client.on('message', async msg => {
                 if (posicion_videos + 1 == videos.length) {
                     msg.reply("No hay más canciones, esta es la última.");
                 } else {
-                    actualizarPosicion();
                     nextSong();
                     msg.reply(`Se ha pasado a la siguiente canción: ${videos[posicion_videos]}`);
                 }
@@ -183,12 +181,8 @@ async function searchYouTubeAsync(args) {
 }
 
 function nextSong() {
-    let stream = ytdl(videos[posicion_videos], { filter: 'audioonly' });
+    let stream = ytdl(videos[posicion_videos++], { filter: 'audioonly' });
     return dispatcher = connection.play(stream, { volume: '0.5' });
-}
-
-function actualizarPosicion() {
-    return (posicion_videos = posicion_videos + 1);
 }
 
 client.login(process.env.DISCORD_TOKEN);
