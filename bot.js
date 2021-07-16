@@ -181,9 +181,11 @@ async function searchYouTubeAsync(args) {
 }
 
 function nextSong() {
-    posicion_videos = posicion_videos + 1
+    posicion_videos = posicion_videos + 1;
     let stream = ytdl(videos[posicion_videos], { filter: 'audioonly' });
-    return dispatcher = connection.play(stream, { volume: '0.5' });
+    dispatcher = connection.play(stream, { volume: '0.5' });
+    console.log(dispatcher);
+    return dispatcher;
 }
 
 client.login(process.env.DISCORD_TOKEN);
