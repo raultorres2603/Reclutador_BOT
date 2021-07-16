@@ -77,9 +77,7 @@ client.on('message', async msg => {
                 if (posicion_videos == videos.length) {
                     msg.reply("No hay más canciones, esta es la última.");
                 } else {
-                    posicion_videos++;
-                    let stream = ytdl(videos[posicion_videos], { filter: 'audioonly' });
-                    dispatcher = connection.play(stream, { volume: '0.5' });
+                    nextSong();
                     msg.reply(`Se ha pasado a la siguiente canción: ${videos[posicion_videos]}`);
                 }
             }
