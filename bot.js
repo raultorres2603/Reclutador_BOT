@@ -7,11 +7,11 @@ const avatar_url = 'https://lh3.googleusercontent.com/proxy/SK3HurdymtUsSf0_L1WD
 const ytdl = require('ytdl-core');
 var connection;
 var link;
-var dispatcher;
+let dispatcher;
 var videos = [];
 var YOUTUBE_CRED = `${process.env.YOUTUBE_API}`;
 var YouTube = require("discord-youtube-api");
-var posicion_videos = 0;
+let posicion_videos = 0;
 
 var youtube = new YouTube(`${YOUTUBE_CRED}`);
 
