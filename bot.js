@@ -7,6 +7,7 @@ const avatar_url = 'https://lh3.googleusercontent.com/proxy/SK3HurdymtUsSf0_L1WD
 const ytdl = require('ytdl-core');
 var connection;
 var link;
+var dispatcher;
 var videos = [];
 var YOUTUBE_CRED = `${process.env.YOUTUBE_API}`;
 var YouTube = require("discord-youtube-api");
@@ -35,7 +36,7 @@ client.on('message', async msg => {
                 if (posicion_videos == 0 && videos.length == 0) {
                     videos.push(url);
                     let stream = ytdl(url, { filter: 'audioonly' });
-                    let dispatcher = connection.play(stream, { volume: '0.5' });
+                    dispatcher = connection.play(stream, { volume: '0.5' });
                     // Hay que poner finish en vez de end, ni puto caso a la documentación oficial
                     // https://stackoverflow.com/questions/61050918/discord-js-bot-unable-to-leave-voice-channel
                     dispatcher.on('finish', () => {
