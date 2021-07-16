@@ -31,7 +31,7 @@ client.on('message', async msg => {
             if (msg.content.startsWith('!play')) {
                 // Only try to join the sender's voice channel if they are in one themselves
                 connection = await msg.member.voice.channel.join();
-                link = msg.content.substring(7);
+                link = msg.content.substring(6);
                 let url = await searchYouTubeAsync(link);
                 if (posicion_videos == 0 && videos.length == 0) {
                     videos.push(url);
