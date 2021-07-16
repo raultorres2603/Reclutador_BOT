@@ -46,9 +46,7 @@ client.on('message', async msg => {
                             posicion_videos = 0;
                             msg.member.voice.channel.leave();
                         } else {
-                            posicion_videos++;
-                            let stream = ytdl(videos[posicion_videos], { filter: 'audioonly' });
-                            dispatcher = connection.play(stream, { volume: '0.5' });
+                            nextSong();
                         }
                     })
                     msg.reply(`Se ha añadido tu canción y se reproducirá ahora: ${url}`);
@@ -182,6 +180,12 @@ async function searchYouTubeAsync(args) {
     console.log(video.url);
     console.log(typeof String(video.url));
     return String(video.url);
+}
+
+async function nextSong() {
+    posicion_videos++;
+    let stream = ytdl(videos[posicion_videos], { filter: 'audioonly' });
+    return dispatcher = connection.play(stream, { volume: '0.5' });
 }
 
 client.login(process.env.DISCORD_TOKEN);
