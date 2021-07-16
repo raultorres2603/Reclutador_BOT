@@ -185,7 +185,7 @@ function nextSong() {
     let stream = ytdl(videos[posicion_videos], { filter: 'audioonly' });
     dispatcher = connection.play(stream, { volume: '0.5' });
     dispatcher.on('finish', () => {
-        if (posicion_videos + 1 == videos.length) {
+        if (posicion_videos + 1 >= videos.length) {
             dispatcher = undefined;
             videos = [];
             posicion_videos = 0;
