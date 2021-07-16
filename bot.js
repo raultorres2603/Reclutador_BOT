@@ -179,9 +179,7 @@ client.on('message', async msg => {
 
 async function searchYouTubeAsync(args) {
     var video = await youtube.searchVideos(args.toString().replace(/,/g, ' '));
-    console.log(video.url);
-    console.log(typeof String(video.url));
-    return String(video.url);
+    return video.url.toString();
 }
 
 client.login(process.env.DISCORD_TOKEN);
