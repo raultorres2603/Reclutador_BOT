@@ -10,10 +10,13 @@ var link;
 var dispatcher;
 var videos = [];
 var YOUTUBE_CRED = `${process.env.YOUTUBE_API}`;
-var YouTube = require("discord-youtube-api");
+//var YouTube = require("discord-youtube-api");
+var YouTube = require('youtube-node');
 var posicion_videos = 0;
 
-var youtube = new YouTube(`${YOUTUBE_CRED}`);
+//var youtube = new YouTube(`${YOUTUBE_CRED}`);
+var youtube = new YouTube();
+youTube.setKey(`${YOUTUBE_CRED}`);
 
 client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`);
@@ -180,8 +183,18 @@ client.on('message', async msg => {
 });
 
 async function searchYouTubeAsync(args) {
+    /*
     var video = await youtube.searchVideos(args.toString());
     return video.url.toString();
+    */
+    youTube.search(args, 1, function(error, result) {
+        if (error) {
+          console.log(error);
+        }
+        else {
+          return result
+        }
+      });
 }
 
 client.login(process.env.DISCORD_TOKEN);
