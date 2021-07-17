@@ -198,4 +198,4 @@ function nextSong(msg) {
     return dispatcher;
 }
 
-client.login(process.env.DISCORD_TOKEN);
+client.login(`${process.env.DISCORD_TOKEN}`);
